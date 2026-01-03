@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary-forest: #064e3b;
+  --color-accent-gold: #d97706;
+  --color-warm-sand: #fffbeb;
+}
+
+:root {
+  --background: #fffbeb;
+  --foreground: #064e3b;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)];
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tighter font-bold text-primary-forest;
+  }
+}
+
+.backdrop-blur-premium {
+  @apply backdrop-blur-xl bg-white/70;
+}
