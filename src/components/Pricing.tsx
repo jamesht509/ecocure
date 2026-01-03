@@ -1,5 +1,8 @@
 import { supabase } from "@/lib/supabase";
 import { PricingCard } from "./PricingCard";
+import { Tables } from "@/types/supabase";
+
+type Plan = Tables<'plans'>;
 
 export async function Pricing() {
   const { data: plans } = await supabase
@@ -7,7 +10,9 @@ export async function Pricing() {
     .select("*")
     .order("created_at", { ascending: true });
 
-  if (!plans) return null;
+  if (!plans || plans.length === 0) return null;
+
+  const typedPlans = plans as Plan[];
 
   return (
     <section id="plans" className="py-32 bg-white">
@@ -24,7 +29,7 @@ export async function Pricing() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {plans.map((plan, i) => (
+          {typedPlans.map((plan, i) => (
             <PricingCard
               key={plan.id}
               index={i}
