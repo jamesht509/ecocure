@@ -1,6 +1,9 @@
 import { supabase } from "@/lib/supabase";
 import { ServiceCard } from "./ServiceCard";
 import { cn } from "@/lib/utils";
+import { Tables } from "@/types/supabase";
+
+type Service = Tables<'services'>;
 
 export async function Services() {
   const { data: services } = await supabase
@@ -8,7 +11,9 @@ export async function Services() {
     .select("*")
     .order("created_at", { ascending: true });
 
-  if (!services) return null;
+  if (!services || services.length === 0) return null;
+
+  const typedServices = services as Service[];
 
   return (
     <section id="services" className="py-32 bg-[#fffbeb]">
@@ -28,7 +33,7 @@ export async function Services() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, i) => (
+          {typedServices.map((service, i) => (
             <ServiceCard
               key={service.id}
               title={service.title}

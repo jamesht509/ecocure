@@ -2,6 +2,9 @@
 
 import { supabase } from "@/lib/supabase";
 import { revalidatePath } from "next/cache";
+import { TablesInsert } from "@/types/supabase";
+
+type LeadInsert = TablesInsert<'leads'>;
 
 export async function submitLead(formData: {
   name: string;
@@ -11,15 +14,15 @@ export async function submitLead(formData: {
   message?: string;
 }) {
   try {
-    const { error } = await supabase.from("leads").insert([
-      {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        service_interest: formData.plan,
-        message: formData.message || "Plan Inquiry via Contact Form",
-      },
-    ]);
+    const leadData: LeadInsert = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      service_interest: formData.plan,
+      message: formData.message || "Plan Inquiry via Contact Form",
+    };
+
+    const { error } = await supabase.from("leads").insert(leadData as any);
 
     if (error) {
       console.error("Supabase error:", error);

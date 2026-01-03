@@ -1,0 +1,20 @@
+{
+  "node": {
+    "40940d2ca3f63322f81896b067e688619a64185c14": {
+      "workers": {
+        "app/page": {
+          "moduleId": 45739,
+          "async": false,
+          "exportedName": "submitLead",
+          "filename": "src/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "exportedName": "submitLead",
+      "filename": "src/lib/actions.ts"
+    }
+  },
+  "edge": {}
+}

@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/4937e9c247d82dda.js","/_next/static/chunks/08ab32183832864c.js"],"ViewportBoundary"]
+3:I[97367,["/_next/static/chunks/4937e9c247d82dda.js","/_next/static/chunks/08ab32183832864c.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"buildId":"tAnMj_7Xu5_qed02mGcSb","rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Yankee Pest | Premium Pest Management"}],["$","meta","1",{"name":"description","content":"Scientific protection and absolute peace of mind for luxury homes."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}
