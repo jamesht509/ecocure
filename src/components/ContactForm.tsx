@@ -24,12 +24,15 @@ export function ContactForm() {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
+    watch,
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       plan: "",
     },
   });
+
+  const planValue = watch("plan");
 
   const onSubmit = async (data: FormValues) => {
     const result = await submitLead(data);
@@ -124,7 +127,7 @@ export function ContactForm() {
                   {...register("plan")}
                   className={cn(
                     "w-full bg-transparent border-b border-[#064e3b]/10 py-4 focus:outline-none focus:border-[#d97706] transition-all appearance-none cursor-pointer",
-                    !register("plan").value && "text-[#064e3b]/30",
+                    !planValue && "text-[#064e3b]/30",
                     errors.plan && "border-red-400 focus:border-red-400"
                   )}
                 >
